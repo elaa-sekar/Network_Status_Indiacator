@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.demo.networkstatusindicator.ui.NetworkStatusViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/splitLine"
+            android:layout_width="match_parent"
+            android:layout_height="0.7dp"
+            android:background="@android:color/holo_red_light"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_16sdp"
+            android:gravity="center"
+            android:id="@+id/wifiStatus"
+            android:text="@{viewModel.wifiStatus}"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_48sdp"
+            android:layout_height="@dimen/_48sdp"
+            android:id="@+id/iconWifi"
+            android:src="@drawable/icon_wifi"
+            app:layout_constraintEnd_toStartOf="@id/switchWifi"
+            app:layout_constraintTop_toBottomOf="@id/wifiStatus"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginStart="@dimen/_16sdp"/>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/WifiSwitch"
+            android:id="@+id/switchWifi"
+            android:checked="true"
+            app:layout_constraintStart_toEndOf="@id/iconWifi"
+            app:layout_constraintTop_toTopOf="@id/iconWifi"
+            app:layout_constraintBottom_toBottomOf="@id/iconWifi"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_16sdp"
+            android:gravity="center"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:id="@+id/bluetoothStatus"
+            app:layout_constraintBottom_toTopOf="@id/iconBlueTooth"
+            android:text="@{viewModel.bluetoothStatus}"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/splitLine" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iconBlueTooth"
+            android:layout_width="@dimen/_48sdp"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:src="@drawable/icon_bluetooth"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/switchBlueTooth"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bluetoothStatus" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/BlueToothSwitch"
+            android:id="@+id/switchBlueTooth"
+            android:checked="true"
+            app:layout_constraintStart_toEndOf="@id/iconBlueTooth"
+            app:layout_constraintTop_toTopOf="@id/iconBlueTooth"
+            app:layout_constraintBottom_toBottomOf="@id/iconBlueTooth"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
