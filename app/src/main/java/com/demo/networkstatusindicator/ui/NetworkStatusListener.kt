@@ -1,4 +1,7 @@
 package com.demo.networkstatusindicator.ui
 
-class NetworkStatusListener {
+interface NetworkStatusListener {
+    fun toggleWifi(isChecked: Boolean)
+    fun toggleBlueTooth(isChecked: Boolean)
+    fun showMessage(message: String)
 }
