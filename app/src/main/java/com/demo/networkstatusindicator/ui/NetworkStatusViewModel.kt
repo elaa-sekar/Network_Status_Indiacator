@@ -28,7 +28,6 @@ class NetworkStatusViewModel : ViewModel() {
             if (isTurnedOn) "ON" else "OFF"
         }"
         wifiStatus.set(wifiStatusMessage)
-        listener?.showMessage(wifiStatusMessage)
     }
 
     fun updateBlueToothMessage(isTurnedOn: Boolean){
@@ -36,6 +35,9 @@ class NetworkStatusViewModel : ViewModel() {
             if (isTurnedOn) "ON" else "OFF"
         }"
         bluetoothStatus.set(blueToothStatusMessage)
-        listener?.showMessage(blueToothStatusMessage)
+    }
+
+    fun updateNetWorkStatus() {
+
     }
 }
