@@ -5,7 +5,6 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
-import android.net.wifi.WifiManager
 import timber.log.Timber
 
 class NetworkReceiver : BroadcastReceiver() {
@@ -15,9 +14,9 @@ class NetworkReceiver : BroadcastReceiver() {
         context?.let {
             intent?.action?.let { action ->
                 when (action) {
-                    WifiManager.WIFI_STATE_CHANGED_ACTION -> {
-                        it.toast(if (isWifiTurnedOn(it)) WIFI_TURNED_ON else WIFI_TURNED_OFF)
-                    }
+//                    WifiManager.WIFI_STATE_CHANGED_ACTION -> {
+//                        it.toast(if (isWifiTurnedOn(it)) WIFI_TURNED_ON else WIFI_TURNED_OFF)
+//                    }
                     ConnectivityManager.CONNECTIVITY_ACTION -> {
                         it.toast(if (isMobileDataTurnedOn(it)) MOBILE_DATA_TURNED_ON else MOBILE_DATA_TURNED_OFF)
                     }
@@ -39,4 +38,6 @@ class NetworkReceiver : BroadcastReceiver() {
             }
         }
     }
+
+
 }
